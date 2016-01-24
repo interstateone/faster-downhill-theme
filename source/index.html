@@ -98,19 +98,20 @@
         <!-----LINKS----->
         <nav class="navbar">
             <div class="container">
+                <h6 class="navbar-item u-pull-left"><a class="navbar-link" href="/">{block:IfPortrait}<img src="{PortraitURL-64}" alt="{Title}"> {/block:IfPortrait}{Title}<small>&nbsp;near Weyburn, SK</small></a></h6>
+                <input class="menu-btn" type="checkbox" id="menu-btn" />
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
                 <ul class="navbar-list">
-                    <li class="navbar-item u-pull-left"><a class="navbar-link" href="/">{block:IfPortrait}<img src="{PortraitURL-64}" alt="{Title}"> {/block:IfPortrait}{Title}<small>&nbsp;near Weyburn, SK</small></a></li>
-
-                    <li class="navbar-item u-pull-right">
+                    {block:HasPages}
+                    {block:Pages}<li class="navbar-item"><a class="navbar-link" href="{URL}">{Label}</a></li>{/block:Pages}
+                    {/block:HasPages}
+                    {block:AskEnabled}
+                    <li class="navbar-item"><a class="navbar-link" href="/ask">Ask</a></li>
+                    {/block:AskEnabled}
+                    <li class="navbar-item"><a class="navbar-link" href="/archive">Archive</a></li>
+                    <li class="navbar-item">
                         <form action="/search" method="get"><input type="search" name="q" placeholder="Search" name="s"></form>
                     </li>
-                    <li class="navbar-item u-pull-right"><a class="navbar-link" href="/archive">Archive</a></li>
-                    {block:AskEnabled}
-                    <li class="navbar-item u-pull-right"><a class="navbar-link" href="/ask">Ask</a></li>
-                    {/block:AskEnabled}
-                    {block:HasPages}
-                    {block:Pages}<li class="navbar-item u-pull-right"><a class="navbar-link" href="{URL}">{Label}</a></li>{/block:Pages}
-                    {/block:HasPages}
                 </ul>
             </div>
         </nav>
