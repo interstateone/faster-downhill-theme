@@ -117,54 +117,56 @@
         </nav>
 
         <div class="content">
-        <div class="container">
+            <div class="container">
 
-        {block:TagPage}<h2 class="page-title">Posts tagged “{Tag}”</h2>{/block:TagPage}
+            {block:TagPage}<h2 class="page-title">Posts tagged “{Tag}”</h2>{/block:TagPage}
+            
+            {block:SearchPage}<h2 class="page-title">Search results for “{SearchQuery}”</h2>
+                {block:NoSearchResults}<p class="page-title">No results found.</p>{/block:NoSearchResults}
+            {/block:SearchPage}
         
-        {block:SearchPage}<h2 class="page-title">Search results for “{SearchQuery}”</h2>
-            {block:NoSearchResults}<p class="page-title">No results found.</p>{/block:NoSearchResults}{/block:SearchPage}
-        
-        <section id="posts"{block:PermalinkPage} class="permalink-page"{/block:PermalinkPage}>
-<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-            {block:Posts}{block:Text}
+            <section id="posts"{block:PermalinkPage} class="permalink-page"{/block:PermalinkPage}>
+                {block:Posts}
+                {block:Text}
                     <article id="{PostID}" class="post text">
-                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
                         {block:Title}
-                            <h3><a href="{Permalink}">{Title}</a></h3>
-                        {/block:Title}{Body}
+                        <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+                        <div class="post-date">{ShortMonth} {DayOfMonthWithZero}, {Year}</div>
+                        {Body}
                     </article>
-                {/block:Text}{block:Photo}
+                {/block:Text}
+                {block:Photo}
                     <article id="{PostID}" class="post photo">
-                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <div class="post-date">{ShortMonth} {DayOfMonthWithZero}, {Year}</div>
                         <figure>
-                            {LinkOpenTag}
-                                <img src="{PhotoURL-1280}" alt="{PhotoAlt}"/>
-                            {LinkCloseTag}
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-1280}" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}
                         </figure>
 
                         {block:Caption}
                             <div class="caption">{Caption}</div>
                         {/block:Caption}
                     </article>
-                {/block:Photo}{block:Panorama}
+                {/block:Photo}
+                {block:Panorama}
                     <article id="{PostID}" class="post panorama">
-                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <div class="post-date">{ShortMonth} {DayOfMonthWithZero}, {Year}</div>
                         <figure>
-                            {LinkOpenTag}
-                                <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
-                            {LinkCloseTag}
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}
                         </figure>
 
                         {block:Caption}
                             <div class="caption">{Caption}</div>
                         {/block:Caption}
                     </article>
-                {/block:Panorama}{block:Photoset}
+                {/block:Panorama}
+                {block:Photoset}
                     <article id="{PostID}" class="post photoset">
-                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <div class="post-date">{ShortMonth} {DayOfMonthWithZero}, {Year}</div>
                         <figure class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}">
                             {block:Photos}
                                 <div class="photo-data">
@@ -178,27 +180,30 @@
                         <div class="caption">{Caption}</div>
                         {/block:Caption}
                     </article>
-                {/block:Photoset}{block:Quote}
+                {/block:Photoset}
+                {block:Quote}
                     <article id="{PostID}" class="post quote">
-                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <div class="post-date">{ShortMonth} {DayOfMonthWithZero}, {Year}</div>
                         <h3>{Quote}</h3>
 
                         {block:Source}
                             <div class="source">{Source}</div>
                         {/block:Source}
                     </article>
-                {/block:Quote}{block:Link}
+                {/block:Quote}
+                {block:Link}
                     <article id="{PostID}" class="post link">
-                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <div class="post-date">{ShortMonth} {DayOfMonthWithZero}, {Year}</div>
                         <h3><a href="{URL}" class="link" {Target}>{Name}</a></h3>
 
                         {block:Description}
                             <div class="description">{Description}</div>
                         {/block:Description}
                     </article>
-                {/block:Link}{block:Chat}
+                {/block:Link}
+                {block:Chat}
                     <article id="{PostID}" class="post chat">
-                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <div class="post-date">{ShortMonth} {DayOfMonthWithZero}, {Year}</div>
                         {block:Title}
                             <h3><a href="{Permalink}">{Title}</a></h3>
                         {/block:Title}
@@ -213,9 +218,10 @@
                             {/block:Lines}
                         </ul>
                     </article>
-                {/block:Chat}{block:Video}
+                {/block:Chat}
+                {block:Video}
                     <article id="{PostID}" class="post video">
-                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <div class="post-date">{ShortMonth} {DayOfMonthWithZero}, {Year}</div>
                         <figure>
                             {Video-500}
                         </figure>
@@ -225,7 +231,7 @@
                     </article>
                 {/block:Video}{block:Audio}
                     <article id="{PostID}" class="post audio">
-                    <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
+                        <div class="post-date">{ShortMonth} {DayOfMonthWithZero}, {Year}</div>
                         <figure>
                             {AudioPlayerWhite}
                         </figure>
@@ -233,7 +239,8 @@
                             <div class="caption">{Caption}</div>
                         {/block:Caption}
                     </article>
-                {/block:Audio}{block:Answer}
+                {/block:Audio}
+                {block:Answer}
                     <article id="{PostID}" class="post answer">
                     <div class="post-date"><a href="{Permalink}">{ShortMonth} {DayOfMonthWithZero}<br>{Year}</a></div>
                         <h3><a href="{Permalink}">{Question}</a></h3>
@@ -241,16 +248,19 @@
                         <div class="response"><strong class="label">Answer: </strong>{Answer}</div>
                     </article>
                 {/block:Answer}
+
                 <footer class="clearfix">
-                    {block:HasTags}<ul class="tags clearfix">
-                        {block:Tags}<li class="tag"><a href="{TagURL}">{Tag}</a></li>{/block:Tags}
-                    </ul>{/block:HasTags}
+                    {block:HasTags}
+                        <ul class="tags clearfix">
+                            {block:Tags}<li class="tag"><a href="{TagURL}">#{Tag}</a></li>{/block:Tags}
+                        </ul>
+                    {/block:HasTags}
                     <ul class="info clearfix">
                         <li class="date"><a href="{Permalink}">{Month} {DayOfMonthWithZero}, {Year}</a></li>
                         {block:ContentSource}<li><a href="{SourceURL}">{lang:Source}: {block:SourceLogo}<img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}{block:NoSourceLogo}{SourceTitle}{/block:NoSourceLogo}</a></li>{/block:ContentSource}
                     </ul>
                 </footer>
-                {/block:Posts}
+            {/block:Posts}
         </section>
         
         {block:PermalinkPagination}{block:IfDisqusShortname}<!-----DISQUS COMMENTS----->
