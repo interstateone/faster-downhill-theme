@@ -323,30 +323,6 @@
                 $(this).animate({opacity:1});
             });
         </script>
-         <!-----MENU----->
-        <script>
-            $('#menu-button').click(function(){
-                $('#menu').toggleClass('fullscreen');
-                $('body').toggleClass('noscroll');
-                $('.menu-title').addClass('show');
-                $('.nav-button hr').toggleClass('hide');
-                $('.nav-button .close').toggleClass('show');
-            });
-        </script>
-        <!-----SCROLL----->
-        {block:IndexPage}<script>
-            $(document).scroll(function () {
-                var y = $(this).scrollTop();
-                if (y > 300) {
-                    $('.menu-title').addClass('show');
-                } else {
-                    $('.menu-title').removeClass('show');
-                }
-            });
-        </script>{/block:IndexPage}
-        {block:PermalinkPage}<script>
-            $('.menu-title').addClass('show');
-        </script>{/block:PermalinkPage}
         <!-----ARROW KEY BINDINGS----->
         {block:IndexPage}
         <script>
