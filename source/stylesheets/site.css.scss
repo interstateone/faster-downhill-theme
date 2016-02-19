@@ -198,7 +198,7 @@ display: none; }
 
 .navbar-list .navbar-link {
     display: block;
-    padding-left: 20px;
+    padding: 0 20px;
 
     &:hover {
         background-color: #F4F4F4;
@@ -235,9 +235,6 @@ width: 80%; }
         display: inline-block;
         float: left;
         padding-left: 0;
-    }
-    .navbar-link {
-        margin-right: 35px;
     }
 }
 
