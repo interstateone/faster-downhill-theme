@@ -93,7 +93,7 @@
         <![endif]-->
     </head>
     <body>
-        <header></header>
+        <header class="monique"></header>
 
         <!-----LINKS----->
         <nav class="navbar">
@@ -309,6 +309,10 @@
         <script>
             $(document).ready(function() {
                 getLatestLocation();
+
+				if (window.location.pathname === '/ask') {
+					$('header').removeClass('monique').addClass('ask');
+				}
             });
         </script>
         <!-----PHOTOSET----->
